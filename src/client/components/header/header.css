@@ -1,0 +1,80 @@
+
+.header_container{
+    display: grid;
+    grid-auto-flow: column;
+    text-align: center;
+    width: max-content;
+    position: fixed;
+    z-index: 3;
+}
+header{
+    padding-top: 1.2rem;
+   
+}
+.header-left{
+    display: grid;
+    grid-auto-flow: column;
+
+}
+
+.header-right{
+    display: grid;
+    grid-auto-flow: column;
+    margin-right: -10rem;
+    padding-right: 2rem;
+    justify-content:end;
+    margin-top: 2rem;
+}
+.header-right > a >span {
+    color: black;
+    text-decoration: underline;
+    font-size: 12px;
+    font-weight:bold;
+    line-height: 15px;
+    letter-spacing: 0.7px;
+    padding-right: 6rem;
+    
+}
+.header-right > a{
+    color: black;
+    font-size: 12px;
+    font-weight:bold;
+    padding-right: 1rem;
+    letter-spacing: 0.7px;
+    text-decoration: none;
+
+}
+
+.cart-btn{
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    font-size: 20pt;
+    margin-top: -1rem;
+    top:0;
+    
+}
+ul >li{
+    display: inline;
+    padding: 1rem;
+}
+
+
+.logo-pic{
+    width: auto;
+    height: 160px;
+    background-color: transparent;
+    position: absolute;
+    left:42px;
+    top:-15px;
+    cursor: pointer;
+    z-index: 2;
+}
+.logo-container{
+    margin: 0px;
+}
+
+.login-btn{
+    cursor: pointer;
+    
+}

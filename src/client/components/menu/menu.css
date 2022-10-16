@@ -1,0 +1,27 @@
+
+.sidenav {
+    height: 100%;
+    width:300px;
+    position: fixed;
+    background-color:white;
+    top:0;
+    left:0;
+    transition:var(--transition);
+}
+  
+  
+.btn-menu{
+    background-color: transparent;
+    width: 24px;
+    height: 24px;
+    font-size: 20pt;
+    margin-top: 15px;
+    margin-right: 2px;
+    margin-left: 1.5rem;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index: 1;
+    cursor: pointer;
+    
+}

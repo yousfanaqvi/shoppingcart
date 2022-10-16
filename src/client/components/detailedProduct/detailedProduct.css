@@ -1,0 +1,135 @@
+
+.prodcuctDetail-container{
+    height:100%;
+    position:relative;
+    width:auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 4rem;
+}
+.productimage{
+    width:360px;
+    height:500px;
+}
+.content, .size-container{
+    padding: 1rem;
+}
+
+.size-container >p{
+    font-size: 12px;
+    color: #7E7474;
+    width: 14rem;
+    text-align: justify;
+    margin-right: 3rem;
+}
+.size-container>ul>li{
+    font-size: 12px;
+    color: #7E7474;
+}
+.clicked{
+    background-color: blue;
+}
+.content>p{
+    font-size: 12px;
+    color: #7E7474;
+    width: 16rem;
+    text-align: justify;
+    padding-right: 2rem;
+}
+
+#t{
+    color: black;
+    letter-spacing: 0.3px;}
+
+.size-box{
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    padding: 1rem;
+    margin-right: 1rem;
+    width:14rem;
+}
+
+.size-container>ul>li{
+    margin-left: -0.5rem;
+    display: block;
+    cursor: pointer;
+}
+.size-box>li:hover{
+    background-color: #dad3d3;
+
+}
+.size-container{
+    padding-left: 6rem;
+}
+.size-container>span{
+    font-size: 10px;
+    color: #7E7474;
+}
+.content{
+    padding-left: 3rem;
+    padding-top: 4rem;
+}
+.addBtn{
+    margin-top: 2rem;
+    background-color: black;
+    font-size: 11px;
+    color: white;
+    padding-top: 0.7rem;
+    padding-bottom: 0.7rem;
+    font-weight: bold;
+    width: 10rem;
+}
+
+@media screen and (max-width:1024px){
+    .prodcuctDetail-container{
+        grid-template-columns: 30% 40% 30%;
+        gap: 1rem;
+        padding: 4rem;
+        margin-left: 2rem;
+    }
+    .size-container{
+        margin-left: -6rem;
+    }
+    
+    .content{
+        margin-left: -2rem;
+        
+    }
+    .content >p{
+        padding-right: 4.5rem;
+        
+       
+    }
+
+    .productimage{
+        width:250px;
+        height: 380px;
+        padding: 1rem;
+    }
+
+ }
+  /*.....small devices.... */
+
+  @media screen and (max-width:600px){
+    
+    .prodcuctDetail-container{
+        grid-template-columns: 20%;
+        padding: 2rem;
+        margin-left: 6rem;
+      }
+    .content{
+        font-size: 10px;
+        /* padding-right: 3rem; */
+    }
+    .content>p{
+        padding-right: 4rem;
+        
+    }
+
+    .size-container{
+        font-size: 10px;
+        padding-left:7rem;
+        
+    }
+
+ }
