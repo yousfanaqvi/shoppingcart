@@ -36,7 +36,7 @@ function Form() {
     
         }
     
-        return fetch(`http://localhost:3000/storeData`,{
+        return fetch(process.env.PORT+`/storeData`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
