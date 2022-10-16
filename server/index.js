@@ -16,7 +16,7 @@ const stripe= require("stripe")(process.env.stripkey);
 
 const app = exp();
 
-//app.use(exp.static(path.join(__dirname,"build")));
+app.use(exp.static(path.join(__dirname,"build")));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.use(exp.static('public'));
