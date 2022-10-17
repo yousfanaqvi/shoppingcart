@@ -36,7 +36,7 @@ function Form() {
     
         }
     
-        return fetch(`http://localhost:3000/storeData`,{
+        return fetch(`${process.env.REACT_APP_BACKEND_URL}/storeData`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)

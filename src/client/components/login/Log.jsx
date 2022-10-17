@@ -28,8 +28,8 @@ function Log() {
     
         }
     
-        console.log(process.env.PORT);
-        return fetch(`http://localhost:3000/loginUser`,{
+        console.log(process.env.REACT_APP_BACKEND_URL);
+        return fetch(`${process.env.REACT_APP_BACKEND_URL}/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
