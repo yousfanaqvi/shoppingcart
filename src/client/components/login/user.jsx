@@ -16,7 +16,7 @@ function User(props) {
 
     React.useEffect(() => {
       if(state.email!==""){
-      axios.get('${process.env.port}/getdata',{
+      axios.get('http://localhost:3000/getdata',{
         params: {
           email: state.email
         }}).then(res => {

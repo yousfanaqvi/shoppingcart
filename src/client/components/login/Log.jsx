@@ -28,7 +28,8 @@ function Log() {
     
         }
     
-        return fetch(process.env.PORT+`/loginUser`,{
+        console.log(process.env.PORT);
+        return fetch(`http://localhost:3000/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)

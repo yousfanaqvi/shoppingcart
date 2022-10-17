@@ -53,7 +53,7 @@ function Register() {
     
         }
     
-        return fetch(process.env.PORT+`/registerUser`,{
+        return fetch(`http://localhost:3000/registerUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(userData)
