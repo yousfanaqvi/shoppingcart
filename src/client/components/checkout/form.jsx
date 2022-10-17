@@ -93,7 +93,7 @@ function Form() {
                 <label htmlFor="floatingInput" className="form-label">STATE</label>
                 <select className="form-select" id="state" required>
                     <option value=""></option>
-                    <option>California</option>
+                    <option>CALIFORNIA</option>
                     <option>NEW YORK</option>
                     <option>NEW JERSEY</option>
                     <option>CHICAGO</option>
