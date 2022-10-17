@@ -23,14 +23,13 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(exp.json());
 app.use(cors());
 
-const YOUR_DOMAIN = 'http://localhost:3000';
-success_url=YOUR_DOMAIN+"?success=true";
-cancel_url=YOUR_DOMAIN+"?canceled=true";
+
 const port = process.env.PORT || 3000;
 
 app.get("/",function(req,res){
     //res.sendFile(path.join(__dirname,"../public/index.html"));
-   res.sendFile(path.join(__dirname, "build", "index.html"));
+   res.sendFile(path.join(__dirname,  "build/index.html"));
+   
    //res.send("hello");
 });
 

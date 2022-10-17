@@ -63,7 +63,7 @@ function Register() {
             console.log("hello"+response.statusText);
             alert("This email has been registered before")
           }
-          else{
+          else if(response.statusText==="Not found"){
              navigate("/registered");
 
           }
