@@ -6,6 +6,7 @@ import {loginActions} from '../../../store/loginSlice';
 import {useDispatch} from "react-redux";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
+
 function Log() {
     let navigate=useNavigate();
     const dispatch=useDispatch();
@@ -29,7 +30,7 @@ function Log() {
     
         }
     
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
+        return fetch(`https://shoppingcart-beta.vercel.app/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
