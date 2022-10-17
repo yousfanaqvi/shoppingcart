@@ -1,7 +1,7 @@
 // login page (register schema)
 const mongoose= require("mongoose");
 
-mongoose.connect(process.env.dburl);
+mongoose.connect(process.env.MONGO_URI);
 const registerSchema=new mongoose.Schema({
       fname:{
         type:String,
