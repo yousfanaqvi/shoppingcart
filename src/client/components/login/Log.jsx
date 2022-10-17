@@ -15,6 +15,7 @@ function Log() {
 
     
       // login
+      console.log(process.env.REACT_APP_BACKEND_URL);
 
       function sendData (e) {
         e.preventDefault();
@@ -28,8 +29,7 @@ function Log() {
     
         }
     
-        console.log(process.env.REACT_APP_BACKEND_URL);
-        return fetch(`${process.env.REACT_APP_BACKEND_URL}/loginUser`,{
+        return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
