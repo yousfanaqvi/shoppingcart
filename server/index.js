@@ -15,7 +15,20 @@ const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(exp.json());
-app.use(cors());
+// app.use(cors());
+app.use((req, res, next) => {
+  res.header('Access-Control-Allow-Origin', '*');
+  res.header('Access-Control-Allow-Methods', '*');
+  res.header('Access-Control-Allow-Credentials', true);
+  res.header(
+    'Access-Control-Allow-Headers',
+    'Origin, Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers'
+  );
+
+  app.use(cors({ credentials: true, origin: true }));
+  next();
+});
+app.options('*', cors());
 
 
 const port = process.env.PORT || 3000;

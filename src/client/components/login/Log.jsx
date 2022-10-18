@@ -26,7 +26,6 @@ function Log() {
         }
         const headers = {
           "Content-Type":"application/json",
-          "Access-Control-Allow-Headers": "*"
         }
     
         return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
