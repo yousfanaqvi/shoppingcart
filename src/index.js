@@ -4,7 +4,12 @@ import { Provider } from "react-redux";
 import App from "./App"
 import store from "./store/index";
 import "./index.css";
+import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
+
+if (process.env.NODE_ENV === 'production') {
+  disableReactDevTools();
+}
 const container = document.getElementById("root");
 const root = createRoot(container);
 
