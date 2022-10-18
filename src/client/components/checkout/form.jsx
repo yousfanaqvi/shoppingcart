@@ -36,7 +36,7 @@ function Form() {
     
         }
     
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/storeData`,{
+        return fetch(process.env.PORT+`/storeData`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)

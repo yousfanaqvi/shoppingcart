@@ -28,7 +28,7 @@ function Log() {
     
         }
     
-        return fetch(`/loginUser`,{
+        return fetch(`${process.env.PORT}/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
