@@ -6,7 +6,6 @@ import {loginActions} from '../../../store/loginSlice';
 import {useDispatch} from "react-redux";
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Grid';
-
 function Log() {
     let navigate=useNavigate();
     const dispatch=useDispatch();
@@ -16,7 +15,6 @@ function Log() {
 
     
       // login
-      console.log(process.env.REACT_APP_BACKEND_URL);
 
       function sendData (e) {
         e.preventDefault();
@@ -30,7 +28,7 @@ function Log() {
     
         }
     
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
+        return fetch(`/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
