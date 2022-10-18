@@ -25,7 +25,8 @@ function Log() {
             "password":e.target.password.value,
         }
         const headers = {
-          "Content-Type":"application/json",
+          // "Content-Type":"application/json",
+          'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
         }
     
         return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
