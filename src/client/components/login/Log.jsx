@@ -13,6 +13,7 @@ function Log() {
     const state=Menu.hidden;
     console.log(state);
 
+    console.log(process.env.REACT_APP_BACKEND_URL);
     
       // login
 
@@ -28,7 +29,7 @@ function Log() {
     
         }
     
-        return fetch(`${process.env.PORT}/loginUser`,{
+        return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)

@@ -50,7 +50,7 @@ function Checkout() {
     }
 
     // return fetch(`http://localhost:3000/payment`,{
-      return fetch(`${process.env.PORT}/payment`,{
+      return fetch(process.env.REACT_APP_BACKEND_URL+`/payment`,{
       method:"POST",
       headers,
       body:JSON.stringify(body)
