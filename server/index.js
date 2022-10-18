@@ -12,26 +12,20 @@ const { ConstructionOutlined } = require("@mui/icons-material");
 require('dotenv').config();
 
 const stripe= require("stripe")(process.env.stripkey);
-
-
 const app = exp();
-
-app.use(exp.static(path.join(__dirname,"build")));
 app.use(bodyParser.urlencoded({ extended: true }));
-
-// app.use(exp.static('public'));
 app.use(exp.json());
 app.use(cors());
 
 
 const port = process.env.PORT || 3000;
+if (process.env.NODE_ENV==="production"){
+  app.use(exp.static(path.join(__dirname,"build")));
+  app.get("/",function(req,res){
+    res.sendFile(path.join(__dirname, "build","/index.html"));
+ });
+}
 
-app.get("/",function(req,res){
-    //res.sendFile(path.join(__dirname,"../public/index.html"));
-   res.sendFile(path.join(__dirname,  "build/index.html"));
-   
-   //res.send("hello");
-});
 
 //create a customer
 
