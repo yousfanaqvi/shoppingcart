@@ -19,7 +19,7 @@ import "../src/index.css"
  
 const App = () => {
   return (
-    <Router>
+    <Router basename='/'>
       <Header/>
       <Routes>
         <Route path="/" element={<Home/>}/>

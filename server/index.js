@@ -8,25 +8,26 @@ const exp = require('express');
 const path= require("path");
 const bodyParser=require("body-parser");
 const https= require("https");
-const { createProxyMiddleware } = require('http-proxy-middleware')
-
 require('dotenv').config();
 
+// if (process.env.NODE_ENV !== 'production') {
+//   require('dotenv').config({path: __dirname+'/.env'});
+// }
 const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(createProxyMiddleware('/', { target: 'https://shoppingcart-beta.vercel.app', "changeOrigin": true }))
+//app.use(createProxyMiddleware('/', { target: 'https://shoppingcart-beta.vercel.app', "changeOrigin": true }))
 app.use( cors());
-var whitelist = ['https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app', 'https://shoppingcart-beta.vercel.app']
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (whitelist.indexOf(origin) !== -1) {
-      callback(null, true)
-    } else {
-      callback(new Error('Not allowed by CORS'))
-    }
-  }
-}
+// var whitelist = ['https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app', 'https://shoppingcart-beta.vercel.app']
+// var corsOptions = {
+//   origin: function (origin, callback) {
+//     if (whitelist.indexOf(origin) !== -1) {
+//       callback(null, true)
+//     } else {
+//       callback(new Error('Not allowed by CORS'))
+//     }
+//   }
+// }
 app.use(exp.json());
 
 // app.use(function(req, res, next) {
@@ -37,17 +38,22 @@ app.use(exp.json());
 // });
 
 const port = process.env.PORT || 3000;
-app.options('*', cors())
+if (process.env.NODE_ENV === 'production') {
   app.use(exp.static(path.join(__dirname,"build")));
-  app.get("/",function(req,res){
-    // res.sendFile(path.join(__dirname, "build","/index.html"));
-    res.send('heelo');
- });
+  app.get('/*', (req, res) => {
+    res.sendFile(path.join(__dirname, "build","/index.html"));  })
+}
+//app.options('*', cors())
+//   app.use(exp.static(path.join(__dirname,"build")));
+//   app.get("/",function(req,res){
+//     // res.sendFile(path.join(__dirname, "build","/index.html"));
+//     res.send('heelo');
+//  });
 
 
 //create a customer
 
-app.post("/payment", cors(corsOptions) ,  (req,res) => {
+app.post("/payment" ,  (req,res) => {
     const {product,token}=req.body;
     console.log("product", product);
     console.log("price", product.price);
@@ -87,11 +93,11 @@ app.post("/payment", cors(corsOptions) ,  (req,res) => {
 
 
 
-app.post("/storeData",cors(corsOptions), (req,res) => {
+app.post("/storeData", (req,res) => {
   const db=f.connectDB(req.body);
 });
 
-app.get("/getdata", cors(corsOptions),function(req,res){   
+app.get("/getdata", function(req,res){   
   // console.log(req.query.email);
   Register.find({email:req.query.email},function(err,result){
         if(err)
@@ -104,7 +110,7 @@ app.get("/getdata", cors(corsOptions),function(req,res){
     });
  })  
 
-app.post("/registerUser",cors(corsOptions),(req,res) => {
+app.post("/registerUser",(req,res) => {
   const reg=regFn.registerCustomer(req.body);
   Register.find({email:req.body.email},function(err,result){
     if(err)
@@ -126,22 +132,22 @@ app.post("/registerUser",cors(corsOptions),(req,res) => {
     
 });
 
-app.post("/loginUser",cors(corsOptions), (req,res) => {
-  // Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
-  //   if(err)
-  //   console.log("error");
-  //   else if(result)
-  //   {
-  //     res.statusMessage = "found";
-  //     res.status(200).end();
+app.post("/loginUser", (req,res) => {
+  Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
+    if(err)
+    console.log("error");
+    else if(result)
+    {
+      res.statusMessage = "found";
+      res.status(200).end();
 
-  //   }
-  //   else{
-  //     res.statusMessage = "Not found";
-  //     res.status(400).end();
-  //   }
+    }
+    else{
+      res.statusMessage = "Not found";
+      res.status(400).end();
+    }
       
-  // });
+  });
   res.send("hello");
   console.log("check route");
 });
