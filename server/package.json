@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "start": "NODE_ENV=production nodemon index.js"
   },
   "homepage": "https://shoppingcart-beta.vercel.app",
   "proxy": "http://localhost:4242",
