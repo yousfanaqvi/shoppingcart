@@ -122,7 +122,7 @@ app.post("/registerUser",cors(corsOptions),(req,res) => {
     
 });
 
-app.post("https://shoppingcart-beta.vercel.app/loginUser",cors(corsOptions), (req,res) => {
+app.post("/loginUser",cors(corsOptions), (req,res) => {
   Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
     if(err)
     console.log("error");

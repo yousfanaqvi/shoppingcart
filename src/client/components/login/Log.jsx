@@ -30,8 +30,8 @@ function Log() {
 
     
         }
-    
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/loginUser`,{
+        // process.env.REACT_APP_BACKEND_URL
+        return fetch(`/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
