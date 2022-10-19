@@ -17,10 +17,10 @@ import "../src/index.css"
 
 const App = () => {
   return (
-    <Router basename='/api'>
+    <Router basename='/'>
       <Header/>
       <Routes>
-        <Route path="/api" element={<Home/>}/>
+        <Route path="/" element={<Home/>}/>
         <Route path="/checkout" element={<Checkout/>}/>
         <Route path="/product" element={<Product/>}/>
         <Route path="/success" element={<Success/>}/>
