@@ -112,17 +112,17 @@ app.post("/api/storeData", (req,res) => {
 });
 
 app.get("/api/getdata", function(req,res){   
-  // console.log(req.query.email);
-  // Register.find({email:req.query.email},function(err,result){
-  //       if(err)
-  //     console.log("error");
-  //     else if(result)
-  //      res.json(result);
-  //      else{
-  //       res.send("not found");
-  //      }
-  //   });
-  res.send("hello");
+  console.log(req.query.email);
+  Register.find({email:req.query.email},function(err,result){
+        if(err)
+      console.log("error");
+      else if(result)
+       res.json(result);
+       else{
+        res.send("not found");
+       }
+    });
+ 
  })  
 
 app.post("/api/registerUser",(req,res) => {
