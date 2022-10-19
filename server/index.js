@@ -126,22 +126,23 @@ app.post("/registerUser",cors(corsOptions),(req,res) => {
 });
 
 app.post("/loginUser",cors(corsOptions), (req,res) => {
-  Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
-    if(err)
-    console.log("error");
-    else if(result)
-    {
-      res.statusMessage = "found";
-      res.status(200).end();
+  // Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
+  //   if(err)
+  //   console.log("error");
+  //   else if(result)
+  //   {
+  //     res.statusMessage = "found";
+  //     res.status(200).end();
 
-    }
-    else{
-      res.statusMessage = "Not found";
-      res.status(400).end();
-    }
+  //   }
+  //   else{
+  //     res.statusMessage = "Not found";
+  //     res.status(400).end();
+  //   }
       
-  });
-  
+  // });
+  res.send("hello");
+  console.log("check route");
 });
 
 
