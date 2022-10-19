@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon index.js"
   },
-  "homepage": "http://localhost:3000",
+  "homepage": "https://shoppingcart-beta.vercel.app",
   "proxy": "http://localhost:4242",
   "keywords": [],
   "author": "",
