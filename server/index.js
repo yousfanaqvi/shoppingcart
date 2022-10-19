@@ -15,9 +15,15 @@ const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use( cors());
+var whitelist = ['https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app', 'https://shoppingcart-beta.vercel.app']
 var corsOptions = {
-  origin: 'https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
 app.use(exp.json());
 
