@@ -8,12 +8,15 @@ const exp = require('express');
 const path= require("path");
 const bodyParser=require("body-parser");
 const https= require("https");
+const { createProxyMiddleware } = require('http-proxy-middleware')
+
 require('dotenv').config();
 
 const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
-//app.use( cors());
+app.use(createProxyMiddleware('/', { target: 'https://shoppingcart-beta.vercel.app', "changeOrigin": true }))
+app.use( cors());
 var whitelist = ['https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app', 'https://shoppingcart-beta.vercel.app']
 var corsOptions = {
   origin: function (origin, callback) {
