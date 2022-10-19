@@ -15,7 +15,7 @@ const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use( cors( {
-  origin:"https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app"
+  origin:"https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app/loginUser"
 }));
 app.use(exp.json());
 
