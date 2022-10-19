@@ -14,9 +14,11 @@ require('dotenv').config();
 const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use( cors( {
-  origin:"https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app"
-}));
+//app.use( cors());
+var corsOptions = {
+  origin: 'https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 app.use(exp.json());
 
 // app.use(function(req, res, next) {
@@ -36,7 +38,7 @@ const port = process.env.PORT || 3000;
 
 //create a customer
 
-app.post("/payment",    (req,res) => {
+app.post("/payment", cors(corsOptions) ,  (req,res) => {
     const {product,token}=req.body;
     console.log("product", product);
     console.log("price", product.price);
@@ -115,7 +117,7 @@ app.post("/registerUser", (req,res) => {
     
 });
 
-app.post("/loginUser", (req,res) => {
+app.post("/loginUser",cors(corsOptions), (req,res) => {
   Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
     if(err)
     console.log("error");
