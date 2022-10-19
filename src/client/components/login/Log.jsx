@@ -26,6 +26,8 @@ function Log() {
         }
         const headers = {
           'Content-Type':'application/json',
+          'Access-Control-Allow-Headers': "*"
+
     
         }
     
