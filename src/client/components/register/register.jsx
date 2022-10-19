@@ -53,7 +53,7 @@ function Register() {
     
         }
     
-        return fetch('/registerUser',{
+        return fetch(process.env.REACT_APP_BACKEND_URL+'/api/registerUser',{
           method:"POST",
           headers,
           body:JSON.stringify(userData)

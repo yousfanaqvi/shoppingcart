@@ -15,8 +15,6 @@ import User from './client/components/login/user'
 import Registered from './client/components/register/registered'
 import "../src/index.css"
 
-
- 
 const App = () => {
   return (
     <Router basename='/'>

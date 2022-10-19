@@ -26,12 +26,11 @@ function Log() {
         }
         const headers = {
           'Content-Type':'application/json',
-          'Access-Control-Allow-Headers': "*"
 
     
         }
         // process.env.REACT_APP_BACKEND_URL
-        return fetch(`/loginUser`,{
+        return fetch(process.env.REACT_APP_BACKEND_URL+`/api/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)

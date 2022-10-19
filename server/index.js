@@ -7,7 +7,6 @@ const cors= require("cors");
 const exp = require('express');
 const path= require("path");
 const bodyParser=require("body-parser");
-const https= require("https");
 require('dotenv').config();
 
 // if (process.env.NODE_ENV !== 'production') {
@@ -38,11 +37,11 @@ app.use(exp.json());
 // });
 
 const port = process.env.PORT || 3000;
-if (process.env.NODE_ENV === 'production') {
-  app.use(exp.static(path.join(__dirname,"build")));
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, "build","/index.html"));  })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(exp.static(path.join(__dirname,"build")));
+//   app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, "build","/index.html"));  })
+// }
 //app.options('*', cors())
 //   app.use(exp.static(path.join(__dirname,"build")));
 //   app.get("/",function(req,res){
@@ -52,8 +51,23 @@ if (process.env.NODE_ENV === 'production') {
 
 
 //create a customer
+app.get("/api", (req, res) => {
+  res.send("test");
+});
 
-app.post("/payment" ,  (req,res) => {
+app.use(express.static(path.join(__dirname, "build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
+app.post("/api/payment" ,  (req,res) => {
     const {product,token}=req.body;
     console.log("product", product);
     console.log("price", product.price);
@@ -93,11 +107,11 @@ app.post("/payment" ,  (req,res) => {
 
 
 
-app.post("/storeData", (req,res) => {
+app.post("/api/storeData", (req,res) => {
   const db=f.connectDB(req.body);
 });
 
-app.get("/getdata", function(req,res){   
+app.get("/api/getdata", function(req,res){   
   // console.log(req.query.email);
   Register.find({email:req.query.email},function(err,result){
         if(err)
@@ -110,7 +124,7 @@ app.get("/getdata", function(req,res){
     });
  })  
 
-app.post("/registerUser",(req,res) => {
+app.post("/api/registerUser",(req,res) => {
   const reg=regFn.registerCustomer(req.body);
   Register.find({email:req.body.email},function(err,result){
     if(err)
@@ -132,7 +146,7 @@ app.post("/registerUser",(req,res) => {
     
 });
 
-app.post("/loginUser", (req,res) => {
+app.post("/api/loginUser", (req,res) => {
   Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
     if(err)
     console.log("error");
