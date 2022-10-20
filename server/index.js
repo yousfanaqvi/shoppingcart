@@ -67,7 +67,7 @@ app.get("/api/getdata", function(req,res){
 });
 
 app.use(exp.static(path.join(__dirname, "build")));
-app.get("/",function(req,res){
+app.get("*",function(req,res){
      res.sendFile(path.join(__dirname, "build","/index.html"));
       //res.send('heelo');
    });
