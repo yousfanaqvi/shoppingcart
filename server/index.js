@@ -34,15 +34,15 @@ app.use(exp.json());
 
 app.get("/api/getdata", (req, res) => {
   //console.log(req.query.email);
-  Register.find({},function(err,result){
-        if(err)
-      console.log("error");
-      else if(result)
-       res.json(result);
-       else{
-        res.send("not found");
-       }
-    });
+  // Register.find({},function(err,result){
+  //       if(err)
+  //     console.log("error");
+  //     else if(result)
+  //      res.json(result);
+  //      else{
+  //       res.send("not found");
+  //      }
+  //   });
     res.send("hello");
   });
 
