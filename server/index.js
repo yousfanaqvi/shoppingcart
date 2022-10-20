@@ -8,6 +8,7 @@ const exp = require('express');
 const path= require("path");
 const bodyParser=require("body-parser");
 require('dotenv').config();
+app.use( cors());
 
 // if (process.env.NODE_ENV !== 'production') {
 //   require('dotenv').config({path: __dirname+'/.env'});
@@ -16,7 +17,6 @@ const stripe= require("stripe")(process.env.stripkey);
 const app = exp();
 app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(createProxyMiddleware('/', { target: 'https://shoppingcart-beta.vercel.app', "changeOrigin": true }))
-app.use( cors());
 // var whitelist = ['https://shoppingcart-fwl2dz7n1-yousfanaqvi.vercel.app', 'https://shoppingcart-beta.vercel.app']
 // var corsOptions = {
 //   origin: function (origin, callback) {
@@ -42,7 +42,9 @@ app.get("/api/getdata", (req, res) => {
        else{
         res.send("not found");
        }
-    });});
+    });
+    res.send("hello");
+  });
 
  
 
