@@ -35,6 +35,7 @@ function User(props) {
   
       
     const loginstate=useSelector((state)=>state.login.isloggedIn);
+    console.log(loginstate);
   return (
     <div className='success-container'>
     <Box sx={{ flexGrow: 1 , p:10 } }>
