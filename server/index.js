@@ -28,9 +28,9 @@ app.use(bodyParser.urlencoded({ extended: true }));
 //   }
 // }
 app.use(exp.json());
-// app.get("/api/test", (req, res) => {
-//   res.send("test");
-// });
+app.get("/api/test", (req, res) => {
+  res.send("test");
+});
 
 app.get("/api/getdata", (req, res) => {
   //console.log(req.query.email);
