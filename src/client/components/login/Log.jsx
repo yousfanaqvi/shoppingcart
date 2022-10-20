@@ -42,10 +42,14 @@ function Log() {
               ));
               navigate("/user",{ state: { email:e.target.email.value } });
             }
-          else{
+          else if(response.statusText==="found"){
             dispatch(loginActions.foundUser(true
               ));
-             navigate("/user",{ state: { email:e.target.email.value } });}
+             navigate("/user",{ state: { email:e.target.email.value } });
+            }
+            else{
+              console.log("error");
+            }
              
         }).catch(err => {
           console.log("Error",err)
