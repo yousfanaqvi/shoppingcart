@@ -96,7 +96,7 @@ app.post("/storeData", (req,res) => {
   const db=f.connectDB(req.body);
 });
 
-app.get("/getdata", function(req,res){   
+app.get("/api/getdata", function(req,res){   
   // console.log(req.query.email);
   Register.find({email:req.query.email},function(err,result){
         if(err)
@@ -131,7 +131,7 @@ app.post("/registerUser",(req,res) => {
     
 });
 
-app.post("/loginUser", (req,res) => {
+app.post("/api/loginUser", (req,res) => {
   Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
     if(err)
     console.log("error");
