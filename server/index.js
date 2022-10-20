@@ -33,24 +33,44 @@ app.get("/api/test", (req, res) => {
 });
 
 app.get("/api/getdata", function(req,res){   
-  // console.log(req.query.email);
-  // Register.find({email:req.query.email},function(err,result){
-  //       if(err)
-  //     console.log("error");
-  //     else if(result)
-  //      res.json(result);
-  //      else{
-  //       res.send("not found");
-  //      }
-  //   });
+  console.log(req.query.email);
+  Register.find({email:req.query.email},function(err,result){
+        if(err)
+      console.log("error");
+      else if(result)
+       res.json(result);
+       else{
+        res.send("not found");
+       }
+    });
 
-    res.send("hello");
+    
  })  
-app.use(exp.static(path.join(__dirname, "/build")));
+
+ app.post("/api/loginUser", (req,res) => {
+  Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
+    if(err)
+    console.log("error");
+    else if(result)
+    {
+      res.statusMessage = "found";
+      res.status(200).end();
+
+    }
+    else{
+      res.statusMessage = "Not found";
+      res.status(400).end();
+    }
+      
+  });
+  
+});
+
+app.use(exp.static(path.join(__dirname, "build")));
 
 app.get("*", function (_, res) {
   res.sendFile(
-    path.join(__dirname, "/build/index.html"),
+    path.join(__dirname, "build","index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err);
@@ -149,25 +169,6 @@ app.post("/registerUser",(req,res) => {
     
 });
 
-app.post("/api/loginUser", (req,res) => {
-  Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
-    if(err)
-    console.log("error");
-    else if(result)
-    {
-      res.statusMessage = "found";
-      res.status(200).end();
-
-    }
-    else{
-      res.statusMessage = "Not found";
-      res.status(400).end();
-    }
-      
-  });
-  res.send("hello");
-  console.log("check route");
-});
 
 
 app.listen(port,function(err){
