@@ -70,7 +70,7 @@ app.use(exp.static(path.join(__dirname, "build")));
 
 app.get("*", function (_, res) {
   res.sendFile(
-    path.join(__dirname, "build","index.html"),
+    path.join(__dirname, "build","/index.html"),
     function (err) {
       if (err) {
         res.status(500).send(err);
