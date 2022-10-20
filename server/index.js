@@ -108,7 +108,7 @@ app.get("/api/getdata", function(req,res){
        }
     });
 
-    console.log("hello");
+    res.send("hello");
  })  
 
 app.post("/registerUser",(req,res) => {
