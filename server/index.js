@@ -28,13 +28,13 @@ app.use( cors());
 //   }
 // }
 app.use(exp.json());
-app.get("/api/test", (req, res) => {
-  res.send("test");
-});
+// app.get("/api/test", (req, res) => {
+//   res.send("test");
+// });
 
 app.get("/api/getdata", (req, res) => {
-  console.log(req.query.email);
-  Register.find({email:req.query.email},function(err,result){
+  //console.log(req.query.email);
+  Register.find({},function(err,result){
         if(err)
       console.log("error");
       else if(result)
