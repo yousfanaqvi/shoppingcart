@@ -16,7 +16,7 @@ function User(props) {
 
     React.useEffect(() => {
       if(state.email!==""){
-      axios.get(`/api/getdata`
+      axios.get(`/getdata`
       ,{
         params: {
           email: state.email
