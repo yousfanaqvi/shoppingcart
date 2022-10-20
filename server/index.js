@@ -32,7 +32,7 @@ app.get("/api/test", (req, res) => {
   res.send("test");
 });
 
-app.get("/api/getdata", function(req,res){   
+app.get("/api/getdata", (req, res) => {
   console.log(req.query.email);
   Register.find({email:req.query.email},function(err,result){
         if(err)
@@ -42,10 +42,9 @@ app.get("/api/getdata", function(req,res){
        else{
         res.send("not found");
        }
-    });
+    });});
 
-    
- })  
+ 
 
  app.post("/api/loginUser", (req,res) => {
   Register.findOne({email:req.body.email,password:req.body.password},function(err,result){
