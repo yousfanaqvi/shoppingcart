@@ -32,6 +32,20 @@ app.get("/api/test", (req, res) => {
   res.send("test");
 });
 
+app.get("/api/getdata", function(req,res){   
+  // console.log(req.query.email);
+  // Register.find({email:req.query.email},function(err,result){
+  //       if(err)
+  //     console.log("error");
+  //     else if(result)
+  //      res.json(result);
+  //      else{
+  //       res.send("not found");
+  //      }
+  //   });
+
+    res.send("hello");
+ })  
 app.use(exp.static(path.join(__dirname, "/build")));
 
 app.get("*", function (_, res) {
@@ -111,20 +125,7 @@ app.post("/storeData", (req,res) => {
   const db=f.connectDB(req.body);
 });
 
-app.get("/api/getdata", function(req,res){   
-  // console.log(req.query.email);
-  // Register.find({email:req.query.email},function(err,result){
-  //       if(err)
-  //     console.log("error");
-  //     else if(result)
-  //      res.json(result);
-  //      else{
-  //       res.send("not found");
-  //      }
-  //   });
 
-    res.send("hello");
- })  
 
 app.post("/registerUser",(req,res) => {
   const reg=regFn.registerCustomer(req.body);
