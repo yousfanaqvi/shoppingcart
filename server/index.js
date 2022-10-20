@@ -28,7 +28,22 @@ app.use( cors());
 //   }
 // }
 app.use(exp.json());
+app.get("/api/test", (req, res) => {
+  res.send("test");
+});
 
+app.use(exp.static(path.join(__dirname, "./build")));
+
+app.get("*", function (_, res) {
+  res.sendFile(
+    path.join(__dirname, "./build/index.html"),
+    function (err) {
+      if (err) {
+        res.status(500).send(err);
+      }
+    }
+  );
+});
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
@@ -37,11 +52,11 @@ app.use(exp.json());
 // });
 
 const port = process.env.PORT || 3000;
-if (process.env.NODE_ENV === 'production') {
-  app.use(exp.static(path.join(__dirname,"build")));
-  app.get('/*', (req, res) => {
-    res.sendFile(path.join(__dirname, "build","/index.html"));  })
-}
+// if (process.env.NODE_ENV === 'production') {
+//   app.use(exp.static(path.join(__dirname,"build")));
+//   app.get('/*', (req, res) => {
+//     res.sendFile(path.join(__dirname, "build","/index.html"));  })
+// }
 //app.options('*', cors())
 //   app.use(exp.static(path.join(__dirname,"build")));
 //   app.get("/",function(req,res){
