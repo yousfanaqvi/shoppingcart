@@ -107,6 +107,8 @@ app.get("/api/getdata", function(req,res){
         res.send("not found");
        }
     });
+
+    console.log("hello");
  })  
 
 app.post("/registerUser",(req,res) => {
