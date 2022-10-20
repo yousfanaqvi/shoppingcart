@@ -51,7 +51,7 @@ const port = process.env.PORT || 3000;
 
 
 //create a customer
-app.get("/", (req, res) => {
+app.get("/api", (req, res) => {
   res.send("test");
 });
 
