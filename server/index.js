@@ -67,17 +67,21 @@ app.get("/api/getdata", function(req,res){
 });
 
 app.use(exp.static(path.join(__dirname, "build")));
-
-app.get("*", function (_, res) {
-  res.sendFile(
-    path.join(__dirname, "build","/index.html"),
-    function (err) {
-      if (err) {
-        res.status(500).send(err);
-      }
-    }
-  );
-});
+app.get("/",function(req,res){
+     res.sendFile(path.join(__dirname, "build","/index.html"));
+      //res.send('heelo');
+   });
+  
+// app.get("*", function (_, res) {
+//   res.sendFile(
+//     path.join(__dirname, "build","/index.html"),
+//     function (err) {
+//       if (err) {
+//         res.status(500).send(err);
+//       }
+//     }
+//   );
+// });
 // app.use(function(req, res, next) {
 //   res.header("Access-Control-Allow-Origin", "*");
 //   res.header("Access-Control-Allow-Methods", "GET,HEAD,OPTIONS,POST,PUT");
