@@ -30,7 +30,7 @@ function Log() {
     
         }
         // process.env.REACT_APP_BACKEND_URL
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/api/loginUser`,{
+        return fetch(`https://shoppingcartserver.vercel.app/loginUser`,{
           method:"POST",
           headers,
           body:JSON.stringify(data)
