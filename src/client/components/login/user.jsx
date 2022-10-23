@@ -23,7 +23,7 @@ function User(props) {
         }}).then(res => {
             //  d.push(res.data);
              res.data.map((item,index) => {
-              setUserData(item);
+              console.log(item);
              });
           })
           .catch(function (error) {
@@ -35,7 +35,6 @@ function User(props) {
   
       
     const loginstate=useSelector((state)=>state.login.isloggedIn);
-    console.log(loginstate);
   return (
     <div className='success-container'>
     <Box sx={{ flexGrow: 1 , p:10 } }>
