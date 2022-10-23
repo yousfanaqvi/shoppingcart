@@ -21,10 +21,11 @@ function User(props) {
         params: {
           email: state.email
         }}).then(res => {
+          console.log(res.data);
             //  d.push(res.data);
-             res.data.map((item,index) => {
-              console.log(item);
-             });
+            //  res.data.map((item,index) => {
+            //   console.log(res.data);
+            //  });
           })
           .catch(function (error) {
               console.log(error);
