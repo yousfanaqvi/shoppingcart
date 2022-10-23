@@ -36,13 +36,13 @@ function Log() {
           body:JSON.stringify(data)
         }).then(response => {
           console.log(response);
-          if(response.statusText==="Not found")
+          if(response.statusText==="Not found" || response.status===400)
           {
             dispatch(loginActions.foundUser(false
               ));
               navigate("/user",{ state: { email:e.target.email.value } });
             }
-          else if(response.statusText==="found"){
+          else if(response.statusText==="found" || response.status===200){
             dispatch(loginActions.foundUser(true
               ));
              navigate("/user",{ state: { email:e.target.email.value } });
