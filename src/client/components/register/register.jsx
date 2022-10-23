@@ -53,21 +53,19 @@ function Register() {
     
         }
     
-        return fetch('/registerUser',{
+        return fetch('https://shoppingcartserver.vercel.app/registerUser',{
           method:"POST",
           headers,
           body:JSON.stringify(userData)
         }).then(response => {
-          if(response.statusText==="found")
+          if(response.statusText==="found" || response.status===200)
           {
-            console.log("hello"+response.statusText);
             alert("This email has been registered before")
           }
-          else if(response.statusText==="Not found"){
+          else if(response.statusText==="Not found" || response.status===400){
              navigate("/registered");
 
           }
-          //alert("registered");
           console.log("response",response)
         })
         .catch(err => {

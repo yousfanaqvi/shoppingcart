@@ -30,11 +30,6 @@ function User(props) {
           email: state.email
         }}).then(res => {
           setData(res.data);
-          console.log(res.data);
-            //  d.push(res.data);
-            //  res.data.map((item,index) => {
-            //   console.log(res.data);
-            //  });
           })
           .catch(function (error) {
               console.log(error);

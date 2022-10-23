@@ -48,9 +48,7 @@ function Checkout() {
       "Content-Type":"application/json",
 
     }
-
-    // return fetch(`http://localhost:3000/payment`,{
-      return fetch(process.env.REACT_APP_BACKEND_URL+`/payment`,{
+      return fetch(`https://shoppingcartserver.vercel.app/payment`,{
       method:"POST",
       headers,
       body:JSON.stringify(body)

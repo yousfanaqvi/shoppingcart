@@ -24,30 +24,29 @@ function Form() {
     async function sendData (e) {
         e.preventDefault();
         dispatch(shippingActions.formComplete(true))
-        let data = {
-            "fname": e.target.fname.value,
-            "lname": e.target.lname.value,
-            "telephone":e.target.phone.value,
-            "email":e.target.email.value,
-            "address":e.target.address.value,
-        }
-        const headers = {
-          "Content-Type":"application/json",
+    //     let data = {
+    //         "fname": e.target.fname.value,
+    //         "lname": e.target.lname.value,
+    //         "telephone":e.target.phone.value,
+    //         "email":e.target.email.value,
+    //         "address":e.target.address.value,
+    //     }
+    //     const headers = {
+    //       "Content-Type":"application/json",
     
-        }
+    //     }
     
-        return fetch(process.env.REACT_APP_BACKEND_URL+`/storeData`,{
-          method:"POST",
-          headers,
-          body:JSON.stringify(data)
-        }).then(response => {
-            alert("Address saved! - Click cart button to make payment")
-        console.log("response",response)
-        }).catch(err => {
-          console.log("Error",err)
-        })
-
-      }
+    //     return fetch(process.env.REACT_APP_BACKEND_URL+`/storeData`,{
+    //       method:"POST",
+    //       headers,
+    //       body:JSON.stringify(data)
+    //     }).then(response => {
+    //         alert("Address saved! - Click cart button to make payment")
+    //     console.log("response",response)
+    //     }).catch(err => {
+    //       console.log("Error",err)
+    //     })
+}
       
   return (
     <div className='checkform-container'>
