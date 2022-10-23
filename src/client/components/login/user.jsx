@@ -14,6 +14,14 @@ function User(props) {
     email:""
   });
 
+  const setData = e => {
+    setUserData(() => ({
+      fname:e.fname,
+      lname:e.lname,
+      email:e.email
+    }))
+  }
+
     React.useEffect(() => {
       if(state.email!==""){
       axios.get('https://shoppingcartserver.vercel.app/getdata'
@@ -21,6 +29,7 @@ function User(props) {
         params: {
           email: state.email
         }}).then(res => {
+          setData(res.data);
           console.log(res.data);
             //  d.push(res.data);
             //  res.data.map((item,index) => {
