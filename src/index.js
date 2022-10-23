@@ -8,7 +8,10 @@ import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
 if (process.env.REACT_APP_NODE_ENV === 'production') {
   disableReactDevTools();
+  console.log = function () {};
+  console.disableYellowBox = true;
 }
+console.log(process.env.REACT_APP_NODE_ENV);
 const container = document.getElementById("root");
 const root = createRoot(container);
 
