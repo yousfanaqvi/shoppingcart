@@ -62,11 +62,6 @@ function Checkout() {
     })
   }
 
-  // this is to send form data
-  
-
-
-
   return (
 
     <div className='check-container' >

@@ -14,10 +14,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cors());
 
-app.get("/api/test", (req, res) => {
-  res.send("test");
-});
-
 app.use(express.static(path.join(__dirname, "../build")));
 
 app.get("*", function (_, res) {
@@ -75,7 +71,6 @@ module.exports = app;
 // if (process.env.NODE_ENV !== 'production') {
 //   require('dotenv').config({path: __dirname+'/.env'});
 // }
-const stripe= require("stripe")(process.env.stripkey);
 // const app = exp();
 // app.use(bodyParser.urlencoded({ extended: true }));
 //app.use(createProxyMiddleware('/', { target: 'https://shoppingcart-beta.vercel.app', "changeOrigin": true }))
