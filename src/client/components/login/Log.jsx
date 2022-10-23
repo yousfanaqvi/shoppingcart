@@ -29,7 +29,6 @@ function Log() {
 
     
         }
-        // process.env.REACT_APP_BACKEND_URL;
         return fetch(`https://shoppingcartserver.vercel.app/loginUser`,{
           method:"POST",
           headers,

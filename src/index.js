@@ -6,8 +6,7 @@ import store from "./store/index";
 import "./index.css";
 import { disableReactDevTools } from '@fvilers/disable-react-devtools';
 
-
-if (process.env.NODE_ENV === 'production') {
+if (process.env.REACT_APP_NODE_ENV === 'production') {
   disableReactDevTools();
 }
 const container = document.getElementById("root");
